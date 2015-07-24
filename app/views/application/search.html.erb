@@ -1,0 +1,13 @@
+<div id="header">
+    <h1>Twitter Trend Analysis</h1>
+</div>
+
+<search>
+    <p>
+        <%= form_tag "/results" do %>
+            <%= label_tag "search_field", "Enter your search query here:" %>
+            <%= text_field_tag "search_field" %>
+            <%= submit_tag "Search" %>
+        <% end %>
+    </p>
+</search>

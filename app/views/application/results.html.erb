@@ -1,0 +1,74 @@
+<div id="header">
+    <h1>Twitter Trend Analysis</h1>
+</div>
+
+<div id="nav">
+<br>
+<br>
+<br>
+</div>
+
+
+    <%= form_tag "/results" do %>
+        <%= label_tag "search_field", "Search again:" %>
+        <%= text_field_tag "search_field" %>
+        <%= submit_tag "Search" %>
+    <% end %>
+<div> Showing results for: <%= params[:search_field] %> </div>
+
+
+<div id="section">
+<div>
+    <h2>#HashTags</h2>
+            
+        <% @hashTags.each do |key, array| %>
+            <p>
+                <numbers><%= array %></numbers> 
+                <theWords><%= key %></theWords>
+                <!-- "https://www.twitter.com/hashtag/#{theTags.text}" -->
+                <hr>
+            </p>
+        <% end %>
+            
+            
+    <h2>@userMentions</h2>
+        <% @userMention.each do |key, array| %>
+            <p>
+                <numbers><%= array %></numbers>
+                <theWords><%= link_to key, "https://www.twitter.com/#{key}" %></theWords> 
+                <!-- "https://twitter.com/search?q=#{users.name}&src=typd&vertical=default&f=users" -->
+            <hr>
+            </p>
+        <% end %>
+</div>
+</div>
+<div id="footer">
+Created by Zachary Corse
+</div>
+
+
+
+<!-------------------------------------------Old code below------------------------------------------------------>
+
+    
+    <!--<div>-->
+    <!--<h2> #Hashtags </h2>-->
+    <!--<p>-->
+    <%# @tweets.each do |tweet| %>
+        <%# tweet.hashtags.each do |theTags| %>
+    <!--<li><%#= link_to theTags.text, "https://www.twitter.com/hashtag/#{theTags.text}" %></li>
+        <%# end %>
+    <%# end %> 
+    <!--</p>-->
+    <!--</div>-->
+    
+    <!--<div>-->
+    <!--<h2>@UserMentions</h2>-->
+    <!--<p>-->
+    <%# @tweets.each do |tweet| %>
+        <%# tweet.user_mentions.each do |users| %>
+    <!--    <li><%#= link_to users.name, "https://twitter.com/search?q=#{users.name}&src=typd&vertical=default&f=users" %></1i>-->
+        <%# end %>
+    <%# end %>
+    <!--</p>-->
+    <!--</div>-->
